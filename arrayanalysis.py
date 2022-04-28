@@ -69,7 +69,7 @@ class AntArrayAnalysis(QtWidgets.QMainWindow):
         self.window_list = ['Square', 'Chebyshev', 'Taylor', 'Hamming', 'Hann']
         self.plot_list = ['3D (Az-El-Amp)', '2D Cartesian', '2D Polar',
                           'Array layout']
-        self.array_config = dict()
+        self.array_config = {}
         self.fix_azimuth = False
 
         """Load UI"""
@@ -260,7 +260,7 @@ class AntArrayAnalysis(QtWidgets.QMainWindow):
         self.circleLabel.append(pg.TextItem('0 dB'))
         self.polarView.addItem(self.circleLabel[0])
         self.circleLabel[0].setPos(self.polarAmpOffset, 0)
-        for circle_idx in range(0, 6):
+        for circle_idx in range(6):
             self.circleList.append(
                 QtGui.QGraphicsEllipseItem(
                     -self.polarAmpOffset + self.polarAmpOffset / 6 *
@@ -418,7 +418,7 @@ class AntArrayAnalysis(QtWidgets.QMainWindow):
                 y = pattern * np.cos(azimuth / 180 * np.pi)
 
             self.circleLabel[0].setPos(self.polarAmpOffset, 0)
-            for circle_idx in range(0, 6):
+            for circle_idx in range(6):
                 self.circleList[circle_idx].setRect(
                     -self.polarAmpOffset + self.polarAmpOffset / 6 *
                     circle_idx,
